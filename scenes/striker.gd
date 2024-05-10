@@ -7,7 +7,7 @@ func _physics_process(delta):
 		var direction = (mouse_position - position).normalized() 
 		var strength = mouse_position.distance_to(position)
 		apply_central_impulse(direction * -(strength * 5))
-		print(strength)
+		#print(strength)
 		
 func _integrate_forces(state):
 	if Input.is_action_just_pressed("start_striker"):

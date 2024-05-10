@@ -1,7 +1,8 @@
 extends Area2D
 
-func _on_body_shape_entered(_body_rid, _body, _body_shape_index, local_shape_index):
+func _on_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_index):
 	#print(body.name) # Striker
+	#print(body.get_parent().name)
 	#print(body_rid) # RID 2132132132131
 	#print(body) # Striker<RigidBody2d>
 	#print(local_shape_index) # The no. of the area2D

@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://w4gcorywtwwu"]
+[gd_scene load_steps=8 format=3 uid="uid://w4gcorywtwwu"]
 
 [ext_resource type="Texture2D" uid="uid://lljnpc2hsydm" path="res://sprites/carrom-board.png" id="1_a7er2"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vu3lo"]
-[ext_resource type="Script" path="res://scenes/GoalPoints.gd" id="2_ei0oq"]
-[ext_resource type="PackedScene" uid="uid://bookjoi74jimp" path="res://scenes/black_carrom.tscn" id="2_t8mn4"]
-[ext_resource type="PackedScene" uid="uid://oejnep3ivph5" path="res://scenes/red_carrom.tscn" id="3_5rpir"]
-[ext_resource type="PackedScene" uid="uid://comder28wh6pc" path="res://scenes/yellow_carrom.tscn" id="4_svbss"]
+[ext_resource type="Script" path="res://scenes/goal_points.gd" id="2_ei0oq"]
 [ext_resource type="PackedScene" uid="uid://tlixi5cbcs61" path="res://scenes/striker.tscn" id="5_l4rp2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e7887"]
@@ -68,18 +65,6 @@ shape = SubResource("CircleShape2D_d2vdn")
 position = Vector2(805, 843.333)
 shape = SubResource("CircleShape2D_d2vdn")
 
-[node name="BlackCarrom" parent="." instance=ExtResource("2_t8mn4")]
-position = Vector2(186, 460)
-script = null
-
-[node name="RedCarrom" parent="." instance=ExtResource("3_5rpir")]
-position = Vector2(455, 418)
-script = null
-
-[node name="YellowCarrom" parent="." instance=ExtResource("4_svbss")]
-position = Vector2(441, 328)
-script = null
-
 [node name="Striker" parent="." instance=ExtResource("5_l4rp2")]
 position = Vector2(368, 509)
 
@@ -87,5 +72,45 @@ position = Vector2(368, 509)
 position = Vector2(326, 508)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Carroms" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="Carroms"]
+
+[node name="RedMarker" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(200, 100)
+metadata/color = "red"
+
+[node name="RedMarker2" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(350, 100)
+metadata/color = "red"
+
+[node name="RedMarker3" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(500, 100)
+metadata/color = "red"
+
+[node name="YellowMarker" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(200, 200)
+metadata/color = "yellow"
+
+[node name="YellowMarker2" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(350, 200)
+metadata/color = "yellow"
+
+[node name="YellowMarker3" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(500, 200)
+metadata/color = "yellow"
+
+[node name="BlackMarker" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(200, 300)
+metadata/color = "black"
+
+[node name="BlackMarker2" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(350, 300)
+metadata/color = "black"
+
+[node name="BlackMarker3" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(500, 300)
+metadata/color = "black"
 
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
