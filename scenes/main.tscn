@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://w4gcorywtwwu"]
+
+[ext_resource type="Texture2D" uid="uid://lljnpc2hsydm" path="res://sprites/carrom-board.png" id="1_a7er2"]
+[ext_resource type="PackedScene" uid="uid://bookjoi74jimp" path="res://scenes/black_carrom.tscn" id="2_t8mn4"]
+[ext_resource type="PackedScene" uid="uid://oejnep3ivph5" path="res://scenes/red_carrom.tscn" id="3_5rpir"]
+[ext_resource type="PackedScene" uid="uid://comder28wh6pc" path="res://scenes/yellow_carrom.tscn" id="4_svbss"]
+[ext_resource type="PackedScene" uid="uid://tlixi5cbcs61" path="res://scenes/striker.tscn" id="5_l4rp2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e7887"]
+friction = 0.4
+bounce = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vjnfr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2vdn"]
+radius = 31.8416
+
+[node name="Main" type="Node2D"]
+
+[node name="CarromBoard" type="StaticBody2D" parent="."]
+position = Vector2(109, 85)
+scale = Vector2(0.6, 0.6)
+physics_material_override = SubResource("PhysicsMaterial_e7887")
+
+[node name="Sprite2D" type="Sprite2D" parent="CarromBoard"]
+position = Vector2(-181.667, -141.667)
+texture = ExtResource("1_a7er2")
+centered = false
+
+[node name="BottomCollisionBorder" type="CollisionShape2D" parent="CarromBoard"]
+position = Vector2(375, 853.405)
+shape = SubResource("WorldBoundaryShape2D_vjnfr")
+
+[node name="TopCollisionBorder" type="CollisionShape2D" parent="CarromBoard"]
+position = Vector2(375, -58.11)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_vjnfr")
+
+[node name="LeftCollisionBorder" type="CollisionShape2D" parent="CarromBoard"]
+position = Vector2(-99, 439.905)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_vjnfr")
+
+[node name="RightCollisionBorder" type="CollisionShape2D" parent="CarromBoard"]
+position = Vector2(813.915, 439.095)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_vjnfr")
+
+[node name="Area2D" type="Area2D" parent="CarromBoard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarromBoard/Area2D"]
+position = Vector2(-71.6667, -30)
+shape = SubResource("CircleShape2D_d2vdn")
+
+[node name="BlackCarrom" parent="." instance=ExtResource("2_t8mn4")]
+position = Vector2(284, 393)
+
+[node name="RedCarrom" parent="." instance=ExtResource("3_5rpir")]
+position = Vector2(455, 418)
+
+[node name="YellowCarrom" parent="." instance=ExtResource("4_svbss")]
+position = Vector2(441, 328)
+
+[node name="Striker" parent="." instance=ExtResource("5_l4rp2")]
+position = Vector2(317, 509)

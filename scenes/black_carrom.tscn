@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bookjoi74jimp"]
+
+[ext_resource type="Script" path="res://scenes/carrom.gd" id="1_f4md3"]
+[ext_resource type="Texture2D" uid="uid://ipeaq7i1jjhu" path="res://sprites/black.png" id="2_cacrn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb7dk"]
+radius = 15.0
+
+[node name="BlackCarrom" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_f4md3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_cacrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wb7dk")
