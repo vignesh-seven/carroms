@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dacxphk8sfpdu"]
+
+[ext_resource type="Texture2D" uid="uid://coedtgnoxag45" path="res://sprites/striker.png" id="2_8v4t0"]
+
+[node name="StrikerDummy" type="Sprite2D"]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_8v4t0")

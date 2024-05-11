@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://w4gcorywtwwu"]
+[gd_scene load_steps=7 format=3 uid="uid://w4gcorywtwwu"]
 
 [ext_resource type="Texture2D" uid="uid://lljnpc2hsydm" path="res://sprites/carrom-board.png" id="1_a7er2"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vu3lo"]
 [ext_resource type="Script" path="res://scenes/goal_points.gd" id="2_ei0oq"]
-[ext_resource type="PackedScene" uid="uid://tlixi5cbcs61" path="res://scenes/striker.tscn" id="5_l4rp2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e7887"]
 friction = 0.4
@@ -65,9 +64,6 @@ shape = SubResource("CircleShape2D_d2vdn")
 position = Vector2(805, 843.333)
 shape = SubResource("CircleShape2D_d2vdn")
 
-[node name="Striker" parent="." instance=ExtResource("5_l4rp2")]
-position = Vector2(368, 509)
-
 [node name="StrikerStartMarker" type="Marker2D" parent="."]
 position = Vector2(326, 508)
 
@@ -112,5 +108,7 @@ metadata/color = "black"
 [node name="BlackMarker3" type="Marker2D" parent="Carroms/Markers"]
 position = Vector2(500, 300)
 metadata/color = "black"
+
+[node name="Strikers" type="Node2D" parent="."]
 
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
