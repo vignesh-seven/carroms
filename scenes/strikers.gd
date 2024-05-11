@@ -13,10 +13,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		$StrikerDummy.visible = false
 		var striker = striker_scene.instantiate()
-		striker.position = $"../StrikerStartMarker".position
+		striker.position = $"../StrikerPositionMarker".position
 		
 		var mouse_position = get_viewport().get_mouse_position()
-		var direction = (mouse_position - $"../StrikerStartMarker".position).normalized() 
+		var direction = (mouse_position - $"../StrikerPositionMarker".position).normalized() 
 		# strength of the force is calculated like this for now
 		var strength = mouse_position.distance_to(position)
 		

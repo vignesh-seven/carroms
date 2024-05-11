@@ -1,5 +1,6 @@
 extends Node2D
 
+signal reset_striker
 # Spawning the carroms happens here
 var black_carrom_scene = preload("res://scenes/black_carrom.tscn")
 var yellow_carrom_scene = preload("res://scenes/yellow_carrom.tscn")
@@ -31,7 +32,7 @@ func _ready():
 			$Carroms.add_child(carrom)
 			
 	# set-up the striker sprite
-	$Strikers/StrikerDummy.position = $StrikerStartMarker.position
+	#$Strikers/StrikerDummy.position = $StrikerPositionMarker.position
 	
 func _process(delta):
 	#if Input.is_action_just_pressed("shoot"):
@@ -39,17 +40,18 @@ func _process(delta):
 		#var striker = striker_scene.instantiate()
 		#striker.linear_velocity = Vector2.ZERO
 		#striker.angular_velocity = 0.0
-		#striker.position = $"../StrikerStartMarker".position
+		#striker.position = $"../StrikerPositionMarker".position
 		#$Strikers.add_child(striker)
 		
 	if Input.is_action_just_pressed("reset_striker"):
 		print("Reset")
+		var strikers = $Strikers/StrikerPhysics.get_children(true)
+		# we're gonna iterate through it, just incase there's multiple of them (there shouldn't be, but hey)
+		for striker in strikers:
+			striker.queue_free() 
 		#find_child("Striker")
 		#print(find_children("Striker"))
-	if Input.is_action_pressed("left"):
-		print("Left")
-		
-	if Input.is_action_pressed("right"):
-		print("Right")
+		reset_striker.emit()
+
 	
 
