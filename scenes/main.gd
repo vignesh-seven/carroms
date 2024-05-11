@@ -7,7 +7,7 @@ var red_carrom_scene = preload("res://scenes/red_carrom.tscn")
 
 # Spawning the strikers
 var striker_scene = preload("res://scenes/striker.tscn")
-var striker_dummy_scene = preload("res://scenes/striker_dummy.tscn")
+#var striker_dummy_scene = preload("res://scenes/striker_dummy.tscn")
 
 
 func _ready():
@@ -30,8 +30,26 @@ func _ready():
 			carrom.position = marker.position
 			$Carroms.add_child(carrom)
 			
-	# spawing striker
-	var striker_dummy = striker_dummy_scene.instantiate()
-	striker_dummy.position = $StrikerStartMarker.position
-	print(striker_dummy.position)
-	$Strikers.add_child(striker_dummy)
+	# set-up the striker sprite
+	$Strikers/StrikerDummy.position = $StrikerStartMarker.position
+	
+func _process(delta):
+	#if Input.is_action_just_pressed("shoot"):
+		#print("Shoot")
+		#var striker = striker_scene.instantiate()
+		#striker.linear_velocity = Vector2.ZERO
+		#striker.angular_velocity = 0.0
+		#striker.position = $"../StrikerStartMarker".position
+		#$Strikers.add_child(striker)
+		
+	if Input.is_action_just_pressed("reset_striker"):
+		print("Reset")
+		#find_child("Striker")
+		#print(find_children("Striker"))
+	if Input.is_action_pressed("left"):
+		print("Left")
+		
+	if Input.is_action_pressed("right"):
+		print("Right")
+	
+

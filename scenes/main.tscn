@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://w4gcorywtwwu"]
+[gd_scene load_steps=9 format=3 uid="uid://w4gcorywtwwu"]
 
 [ext_resource type="Texture2D" uid="uid://lljnpc2hsydm" path="res://sprites/carrom-board.png" id="1_a7er2"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vu3lo"]
 [ext_resource type="Script" path="res://scenes/goal_points.gd" id="2_ei0oq"]
+[ext_resource type="PackedScene" uid="uid://dacxphk8sfpdu" path="res://scenes/striker_dummy.tscn" id="4_o4jug"]
+[ext_resource type="Script" path="res://scenes/strikers.gd" id="4_sbwrm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e7887"]
 friction = 0.4
@@ -110,5 +112,10 @@ position = Vector2(500, 300)
 metadata/color = "black"
 
 [node name="Strikers" type="Node2D" parent="."]
+script = ExtResource("4_sbwrm")
+
+[node name="StrikerDummy" parent="Strikers" instance=ExtResource("4_o4jug")]
+
+[node name="StrikerPhysics" type="Node2D" parent="Strikers"]
 
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
