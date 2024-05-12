@@ -120,5 +120,5 @@ script = ExtResource("6_uiwwm")
 
 [node name="StrikerPhysics" type="Node2D" parent="Strikers"]
 
-[connection signal="reset_striker" from="." to="Strikers/StrikerDummy" method="_on_main_reset_striker"]
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
+[connection signal="reset_striker" from="Strikers" to="Strikers/StrikerDummy" method="_on_strikers_reset_striker"]
