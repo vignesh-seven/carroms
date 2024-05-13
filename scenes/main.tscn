@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://w4gcorywtwwu"]
+[gd_scene load_steps=12 format=3 uid="uid://w4gcorywtwwu"]
 
 [ext_resource type="Texture2D" uid="uid://lljnpc2hsydm" path="res://sprites/carrom-board.png" id="1_a7er2"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vu3lo"]
 [ext_resource type="Script" path="res://scenes/goal_points.gd" id="2_ei0oq"]
+[ext_resource type="Texture2D" uid="uid://coedtgnoxag45" path="res://sprites/striker.png" id="4_5nxg1"]
+[ext_resource type="PackedScene" uid="uid://bookjoi74jimp" path="res://scenes/black_carrom.tscn" id="4_kcsvf"]
 [ext_resource type="PackedScene" uid="uid://dacxphk8sfpdu" path="res://scenes/striker_dummy.tscn" id="4_o4jug"]
 [ext_resource type="Script" path="res://scenes/strikers.gd" id="4_sbwrm"]
 [ext_resource type="Script" path="res://scenes/striker_dummy.gd" id="6_uiwwm"]
@@ -14,7 +16,7 @@ bounce = 1.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vjnfr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2vdn"]
-radius = 41.7998
+radius = 41.6666
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vu3lo")
@@ -52,20 +54,31 @@ shape = SubResource("WorldBoundaryShape2D_vjnfr")
 script = ExtResource("2_ei0oq")
 
 [node name="TopLeft" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(-85, -48.3333)
+position = Vector2(-70, -30)
+shape = SubResource("CircleShape2D_d2vdn")
+
+[node name="TopRight" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
+position = Vector2(788.333, -31.6667)
 shape = SubResource("CircleShape2D_d2vdn")
 
 [node name="BottomLeft" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
 position = Vector2(-85, 840)
 shape = SubResource("CircleShape2D_d2vdn")
 
-[node name="TopRight" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(801.667, -43.3333)
+[node name="BottomRight" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
+position = Vector2(708.333, 751.667)
 shape = SubResource("CircleShape2D_d2vdn")
 
-[node name="BottomRight" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(805, 843.333)
-shape = SubResource("CircleShape2D_d2vdn")
+[node name="CanvasLayer" type="CanvasLayer" parent="CarromBoard/GoalPoints/BottomRight"]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CarromBoard/GoalPoints/BottomRight/CanvasLayer"]
+offset_left = 475.0
+offset_top = 477.0
+offset_right = 593.0
+offset_bottom = 595.0
+texture = ExtResource("4_5nxg1")
+expand_mode = 1
 
 [node name="StrikerPositionMarker" type="Marker2D" parent="."]
 position = Vector2(326, 508)
@@ -77,40 +90,52 @@ position = Vector2(326, 508)
 [node name="Markers" type="Node2D" parent="Carroms"]
 
 [node name="RedMarker" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(200, 100)
 metadata/color = "red"
 
 [node name="RedMarker2" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(350, 100)
 metadata/color = "red"
 
 [node name="RedMarker3" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(500, 100)
 metadata/color = "red"
 
 [node name="YellowMarker" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(200, 200)
 metadata/color = "yellow"
 
 [node name="YellowMarker2" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(350, 200)
 metadata/color = "yellow"
 
 [node name="YellowMarker3" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(500, 200)
 metadata/color = "yellow"
 
 [node name="BlackMarker" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(200, 300)
 metadata/color = "black"
 
 [node name="BlackMarker2" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(350, 300)
 metadata/color = "black"
 
 [node name="BlackMarker3" type="Marker2D" parent="Carroms/Markers"]
+visible = false
 position = Vector2(500, 300)
 metadata/color = "black"
+
+[node name="BlackCarrom" parent="Carroms" instance=ExtResource("4_kcsvf")]
+position = Vector2(518, 118)
 
 [node name="Strikers" type="Node2D" parent="."]
 script = ExtResource("4_sbwrm")
@@ -120,5 +145,15 @@ script = ExtResource("6_uiwwm")
 
 [node name="StrikerPhysics" type="Node2D" parent="Strikers"]
 
+[node name="StrikerBoundaryMarkers" type="Node2D" parent="Strikers"]
+
+[node name="Left" type="Marker2D" parent="Strikers/StrikerBoundaryMarkers"]
+position = Vector2(167, 510)
+
+[node name="Right" type="Marker2D" parent="Strikers/StrikerBoundaryMarkers"]
+position = Vector2(480, 510)
+
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_exited"]
+[connection signal="delete_carrom" from="CarromBoard/GoalPoints" to="." method="_on_goal_points_delete_carrom"]
 [connection signal="reset_striker" from="Strikers" to="Strikers/StrikerDummy" method="_on_strikers_reset_striker"]

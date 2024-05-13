@@ -49,3 +49,7 @@ func _process(delta):
 
 	
 
+
+
+func _on_goal_points_delete_carrom(carrom):
+	carrom.queue_free()
