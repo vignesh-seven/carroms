@@ -43,7 +43,7 @@ offset_bottom = 40.0
 [node name="HSlider" type="HSlider" parent="Control"]
 layout_mode = 1
 offset_top = -10.0
-offset_right = 125.0
+offset_right = 120.0
 offset_bottom = 10.0
 pivot_offset = Vector2(0, 10)
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_cul22")

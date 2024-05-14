@@ -31,10 +31,10 @@ func _ready():
 			var carrom = yellow_carrom_scene.instantiate()
 			carrom.position = marker.position
 			$Carroms.add_child(carrom)
-			
+
 	# set-up the striker sprite
 	#$Strikers/StrikerDummy.position = $StrikerPositionMarker.position
-	
+
 func _process(delta):
 	pass
 	#if Input.is_action_just_pressed("shoot"):
@@ -44,10 +44,10 @@ func _process(delta):
 		#striker.angular_velocity = 0.0
 		#striker.position = $"../StrikerPositionMarker".position
 		#$Strikers.add_child(striker)
-		
 
 
-	
+
+
 
 
 

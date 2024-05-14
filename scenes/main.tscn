@@ -140,3 +140,5 @@ position = Vector2(480, 510)
 [connection signal="body_shape_exited" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_exited"]
 [connection signal="delete_carrom" from="CarromBoard/GoalPoints" to="." method="_on_goal_points_delete_carrom"]
 [connection signal="reset_striker" from="Strikers" to="Strikers/StrikerDummy" method="_on_strikers_reset_striker"]
+
+[editable path="Strikers/StrikerDummy"]
