@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cphjjs1fc3suq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aqbbc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i7idu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ht0ul"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rx3ya"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vfkk2"]
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7nkic"]
+color = Color(1, 0.231373, 0.00392157, 1)
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_eat1c"]
+color = Color(0.870588, 0, 0, 1)
+thickness = 5
+
+[node name="AimMeter" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HSlider" type="HSlider" parent="Control"]
+layout_mode = 2
+anchor_bottom = 0.025
+offset_right = 100.0
+offset_bottom = 19.0
+pivot_offset = Vector2(0, 10)
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_aqbbc")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_i7idu")
+theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_ht0ul")
+theme_override_icons/tick = SubResource("PlaceholderTexture2D_rx3ya")
+theme_override_styles/slider = SubResource("StyleBoxLine_vfkk2")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_7nkic")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_eat1c")
+value = 30.0

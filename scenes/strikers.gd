@@ -14,7 +14,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("aim"):
+		print("Aiming")
+	if Input.is_action_just_released("aim"):
+		print("Released")
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
