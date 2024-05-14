@@ -13,7 +13,7 @@ bounce = 1.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vjnfr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2vdn"]
-radius = 46.6667
+radius = 31.6667
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vu3lo")
@@ -51,19 +51,19 @@ shape = SubResource("WorldBoundaryShape2D_vjnfr")
 script = ExtResource("2_ei0oq")
 
 [node name="TopLeft" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(-70, -30)
+position = Vector2(-69.52, -30)
 shape = SubResource("CircleShape2D_d2vdn")
 
 [node name="TopRight" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(788.333, -31.6667)
+position = Vector2(785.528, -29.502)
 shape = SubResource("CircleShape2D_d2vdn")
 
 [node name="BottomLeft" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(-71.6667, 830)
+position = Vector2(-69.692, 826.49)
 shape = SubResource("CircleShape2D_d2vdn")
 
 [node name="BottomRight" type="CollisionShape2D" parent="CarromBoard/GoalPoints"]
-position = Vector2(790, 830)
+position = Vector2(786.04, 826.15)
 shape = SubResource("CircleShape2D_d2vdn")
 
 [node name="StrikerPositionMarker" type="Marker2D" parent="."]
@@ -76,47 +76,38 @@ position = Vector2(326, 508)
 [node name="Markers" type="Node2D" parent="Carroms"]
 
 [node name="RedMarker" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(200, 100)
 metadata/color = "red"
 
 [node name="RedMarker2" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(350, 100)
 metadata/color = "red"
 
 [node name="RedMarker3" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(500, 100)
 metadata/color = "red"
 
 [node name="YellowMarker" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(200, 200)
 metadata/color = "yellow"
 
 [node name="YellowMarker2" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(350, 200)
 metadata/color = "yellow"
 
 [node name="YellowMarker3" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(500, 200)
 metadata/color = "yellow"
 
 [node name="BlackMarker" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(200, 300)
 metadata/color = "black"
 
 [node name="BlackMarker2" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(350, 300)
 metadata/color = "black"
 
 [node name="BlackMarker3" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(500, 300)
 metadata/color = "black"
 

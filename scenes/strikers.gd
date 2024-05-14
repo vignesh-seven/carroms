@@ -22,7 +22,7 @@ func _process(delta):
 		print("Released")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("shoot") or Input.is_action_just_released("aim"):
+	if Input.is_action_just_released("aim"):
 		if $StrikerPhysics.get_child_count() == 0: # only spawn striker if there are no strikers already
 			$StrikerDummy.visible = false
 			var striker = striker_scene.instantiate()
@@ -56,6 +56,7 @@ func _physics_process(delta):
 			if carrom.get_class() == "RigidBody2D":
 				if carrom.linear_velocity <= Vector2(2.0, 2.0) and carrom.linear_velocity >= Vector2(-2.0, -2.0):
 					all_objects_stopped_moving = true
+					continue
 				else:
 					all_objects_stopped_moving = false
 					break
@@ -66,6 +67,7 @@ func _physics_process(delta):
 		var strikers = $StrikerPhysics.get_children(true)
 		# we're gonna iterate through it, just incase there's multiple of them (there shouldn't be, but hey)
 		for striker in strikers:
+			#print("Striker velocity: %d, %d: " % striker.linear_velocity.x, striker.linear_velocity.y)
 			striker.queue_free()
 		#find_child("Striker")
 		#print(find_children("Striker"))

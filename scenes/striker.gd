@@ -6,7 +6,7 @@
 	## apply force on the striker when the shot
 	#if Input.is_action_just_pressed("shoot"):
 		#var mouse_position = get_viewport().get_mouse_position()
-		#var direction = (mouse_position - position).normalized() 
+		#var direction = (mouse_position - position).normalized()
 		## strength of the force is calculated like this for now
 		#var strength = mouse_position.distance_to(position)
 		#

@@ -52,4 +52,5 @@ func _process(delta):
 
 
 func _on_goal_points_delete_carrom(carrom):
+	#print(carrom.linear_velocity)
 	carrom.queue_free()

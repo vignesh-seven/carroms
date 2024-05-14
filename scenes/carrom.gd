@@ -18,6 +18,6 @@ func _process(_delta):
 		#print("moving")
 	#is_zero_approx(linear_velocity)
 	#print(position)
-	
+
 	#if Input.is_action_just_pressed("shoot"):
 		#apply_central_impulse(Vector2(1000,-2000))

@@ -14,7 +14,7 @@ func _ready():
 		[4, 40],
 		[5, 50]
 	]
-	
+
 	var my_new_array = my_array.filter(func(item): return item[0] != 3)
 	print(my_array)
 	print(my_new_array)
