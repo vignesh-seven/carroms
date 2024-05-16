@@ -10,6 +10,7 @@ var red_carrom_scene = preload("res://scenes/red_carrom.tscn")
 var striker_scene = preload("res://scenes/striker.tscn")
 #var striker_dummy_scene = preload("res://scenes/striker_dummy.tscn")
 
+var total_score = 0
 
 func _ready():
 	#print("hi from main.gd")
@@ -54,3 +55,8 @@ func _process(delta):
 func _on_goal_points_delete_carrom(carrom):
 	#print(carrom.linear_velocity)
 	carrom.queue_free()
+
+
+func _on_goal_points_scored(score):
+	total_score += score
+	$CanvasLayer/Control/GridContainer/Score.text = str(total_score)

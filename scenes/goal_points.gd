@@ -2,6 +2,7 @@ extends Area2D
 
 var monitoring_bodies: Array = []
 
+signal scored(score: int)
 signal delete_carrom(carrom)
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_index):
@@ -49,12 +50,16 @@ func _process(_delta):
 			match carrom.get_meta("carrom_type"):
 				"black":
 					print("Black, Score +5")
+					scored.emit(5)
 				"yellow":
 					print("Yellow, Score +10")
+					scored.emit(10)
 				"red":
 					print("Red, Score +20")
+					scored.emit(20)
 				"striker":
 					print("Striker, Score -10")
+					scored.emit(-10)
 				_:
 					print("What the heck was that?")
 

@@ -156,6 +156,7 @@ text = "0"
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_exited"]
 [connection signal="delete_carrom" from="CarromBoard/GoalPoints" to="." method="_on_goal_points_delete_carrom"]
+[connection signal="scored" from="CarromBoard/GoalPoints" to="." method="_on_goal_points_scored"]
 [connection signal="reset_striker" from="Strikers" to="Strikers/StrikerDummy" method="_on_strikers_reset_striker"]
 
 [editable path="Strikers/StrikerDummy"]
