@@ -21,9 +21,10 @@ func _on_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_inde
 	monitoring_bodies.append([body, local_shape_node])
 	#print(monitoring_bodies)
 	#print(local_shape_node.shape.radius)
-	print("Body Entered: name = %s, velocity = %d" % [body.name, body.linear_velocity.length()])
+	#print("Body Entered: name = %s, velocity = %d" % [body.name, body.linear_velocity.length()])
 
 func _on_body_shape_exited(_body_rid, body, _body_shape_index, _local_shape_index):
+	if monitoring_bodies.is_empty(): return
 	monitoring_bodies = monitoring_bodies.filter(func(m_body): return m_body[0].name != body.name)
 	#print(monitoring_bodies)
 
@@ -41,8 +42,23 @@ func _process(_delta):
 
 		# when the carrom is inside the collider, and it's velocity is less than 1500
 		if (dist + carrom.get_child(1).shape.radius <= collider.shape.radius) and carrom.linear_velocity.length() < 1500:
-			print("INSIDE")
-			print(carrom.linear_velocity.length())
+			#print("INSIDE")
+			#print(carrom.linear_velocity.length())
+
+			# emit scores
+			match carrom.get_meta("carrom_type"):
+				"black":
+					print("Black, Score +5")
+				"yellow":
+					print("Yellow, Score +10")
+				"red":
+					print("Red, Score +20")
+				"striker":
+					print("Striker, Score -10")
+				_:
+					print("What the heck was that?")
+
+
 			delete_carrom.emit(carrom)
 		#print("is inside?: %s" % )
 

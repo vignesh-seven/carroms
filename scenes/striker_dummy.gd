@@ -33,6 +33,7 @@ func _process(delta):
 		var value = (distance / aim_circle_radius) * 100
 		if value > 100: value = 100 # make sure the slider value isnt over 100%
 		$Control/HSlider.value = value
+		$Control/AimLine.value = value
 
 	if Input.is_action_just_pressed("aim"):
 		$AimCircleSprite.visible = true

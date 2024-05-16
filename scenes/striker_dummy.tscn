@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dacxphk8sfpdu"]
+[gd_scene load_steps=11 format=3 uid="uid://dacxphk8sfpdu"]
 
 [ext_resource type="Script" path="res://scenes/striker_dummy.gd" id="1_e3j7y"]
 [ext_resource type="Texture2D" uid="uid://coedtgnoxag45" path="res://sprites/striker.png" id="2_8v4t0"]
 [ext_resource type="Texture2D" uid="uid://bkc3fotjemxmg" path="res://sprites/aim-area.png" id="2_i0mxe"]
+[ext_resource type="Texture2D" uid="uid://bwl1a0ex1spjq" path="res://sprites/aim-slider-bg.png" id="3_wskqe"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cul22"]
 
@@ -12,16 +13,12 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uapht"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_x141t"]
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gmxb"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_i7ypc"]
-color = Color(1, 0.231373, 0.00392157, 1)
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 10
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0cc5"]
+texture = ExtResource("3_wskqe")
+expand_margin_top = 16.0
+expand_margin_bottom = 16.0
 
 [node name="StrikerDummy" type="Node2D"]
 script = ExtResource("1_e3j7y")
@@ -29,10 +26,6 @@ script = ExtResource("1_e3j7y")
 [node name="AimCircleSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_i0mxe")
-
-[node name="StrikerDummySprite" type="Sprite2D" parent="."]
-scale = Vector2(0.11, 0.11)
-texture = ExtResource("2_8v4t0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -43,14 +36,31 @@ offset_bottom = 40.0
 [node name="HSlider" type="HSlider" parent="Control"]
 layout_mode = 1
 offset_top = -10.0
-offset_right = 120.0
+offset_right = 119.0
 offset_bottom = 10.0
 pivot_offset = Vector2(0, 10)
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_cul22")
 theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_kslyd")
 theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_xfaq0")
 theme_override_icons/tick = SubResource("PlaceholderTexture2D_uapht")
-theme_override_styles/slider = SubResource("StyleBoxLine_x141t")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_i7ypc")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_i7ypc")
-value = 50.0
+theme_override_styles/slider = SubResource("StyleBoxEmpty_7gmxb")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_d0cc5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_d0cc5")
+value = 53.0
+
+[node name="AimLine" type="HSlider" parent="Control"]
+layout_mode = 1
+offset_top = -10.0
+offset_right = 300.0
+offset_bottom = 10.0
+rotation = 3.14159
+pivot_offset = Vector2(0, 10)
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_cul22")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_kslyd")
+theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_xfaq0")
+theme_override_icons/tick = SubResource("PlaceholderTexture2D_uapht")
+value = 100.0
+
+[node name="StrikerDummySprite" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_8v4t0")

@@ -111,6 +111,10 @@ metadata/color = "black"
 position = Vector2(500, 300)
 metadata/color = "black"
 
+[node name="BlackMarker4" type="Marker2D" parent="Carroms/Markers"]
+position = Vector2(194, 542)
+metadata/color = "black"
+
 [node name="Strikers" type="Node2D" parent="."]
 script = ExtResource("4_sbwrm")
 
@@ -126,6 +130,28 @@ position = Vector2(167, 510)
 
 [node name="Right" type="Marker2D" parent="Strikers/StrikerBoundaryMarkers"]
 position = Vector2(480, 510)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+text = "Score: "
+
+[node name="Score" type="Label" parent="CanvasLayer/Control/GridContainer"]
+layout_mode = 2
+text = "0"
 
 [connection signal="body_shape_entered" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="CarromBoard/GoalPoints" to="CarromBoard/GoalPoints" method="_on_body_shape_exited"]

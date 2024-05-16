@@ -8,6 +8,7 @@ radius = 17.0
 [node name="Striker" type="RigidBody2D"]
 gravity_scale = 0.0
 linear_damp = 1.0
+metadata/carrom_type = "striker"
 
 [node name="StrikerSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.11, 0.11)

@@ -10,6 +10,7 @@ radius = 15.0
 gravity_scale = 0.0
 linear_damp = 1.0
 script = ExtResource("1_f4md3")
+metadata/carrom_type = "yellow"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
