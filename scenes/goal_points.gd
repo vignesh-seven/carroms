@@ -25,7 +25,8 @@ func _on_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_inde
 	#print("Body Entered: name = %s, velocity = %d" % [body.name, body.linear_velocity.length()])
 
 func _on_body_shape_exited(_body_rid, body, _body_shape_index, _local_shape_index):
-	if monitoring_bodies.is_empty(): return
+	if monitoring_bodies.size() == 0:
+		return
 	monitoring_bodies = monitoring_bodies.filter(func(m_body): return m_body[0].name != body.name)
 	#print(monitoring_bodies)
 

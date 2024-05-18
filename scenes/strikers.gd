@@ -1,6 +1,6 @@
 extends Node2D
 
-signal reset_striker
+signal reset_striker(prev_position)
 
 var positions = false
 
@@ -67,11 +67,13 @@ func _physics_process(delta):
 		# reset the striker
 		var strikers = $StrikerPhysics.get_children(true)
 		# we're gonna iterate through it, just incase there's multiple of them (there shouldn't be, but hey)
+		var prev_position = $"../StrikerPositionMarker".position
 		for striker in strikers:
 			#print("Striker velocity: %d, %d: " % striker.linear_velocity.x, striker.linear_velocity.y)
+			prev_position = striker.position
 			striker.queue_free()
 		#find_child("Striker")
 		#print(find_children("Striker"))
-		reset_striker.emit()
+		reset_striker.emit(prev_position)
 		print("Reset")
 

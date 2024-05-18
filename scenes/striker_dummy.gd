@@ -2,6 +2,7 @@ extends Node2D
 
 signal shoot
 
+@export var ready_for_aiming: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print("hi from striker_dummy.gd")
@@ -9,6 +10,7 @@ func _ready():
 	$AimCircleSprite.visible = false
 	$Control.visible = false
 	position = $"../../StrikerPositionMarker".position
+	$AnimationPlayer.play("spawn_animation_part2")
 
 func _process(delta):
 	if Input.is_action_pressed("left"):
@@ -44,7 +46,15 @@ func _process(delta):
 		$Control.visible = false
 
 
-func _on_strikers_reset_striker():
+func _on_strikers_reset_striker(prev_position):
 	visible = true
+	print(prev_position)
+	print($"../../StrikerPositionMarker".position)
+	position = prev_position
+	$AnimationPlayer.play("spawn_animation_part1")
+
+func trigget_spawn_animation_part2():
 	position = $"../../StrikerPositionMarker".position
+	$AnimationPlayer.play("spawn_animation_part2")
+
 
