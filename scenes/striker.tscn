@@ -11,6 +11,7 @@ absorbent = true
 radius = 17.0
 
 [node name="Striker" type="RigidBody2D"]
+mass = 2.5
 physics_material_override = SubResource("PhysicsMaterial_36akr")
 gravity_scale = 0.0
 linear_damp = 1.5

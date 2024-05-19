@@ -95,82 +95,66 @@ position = Vector2(351, 308)
 metadata/color = "yellow"
 
 [node name="YellowMarker3" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(377, 293)
 metadata/color = "yellow"
 
 [node name="YellowMarker4" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(271, 293)
 metadata/color = "yellow"
 
 [node name="YellowMarker5" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(324, 263)
 metadata/color = "yellow"
 
 [node name="YellowMarker6" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(271, 355)
 metadata/color = "yellow"
 
 [node name="YellowMarker7" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(377, 355)
 metadata/color = "yellow"
 
 [node name="YellowMarker8" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(324, 355)
 metadata/color = "yellow"
 
 [node name="YellowMarker9" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(324, 385)
 metadata/color = "yellow"
 
 [node name="BlackMarker" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(324, 293)
 metadata/color = "black"
 
 [node name="BlackMarker2" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(297, 278)
 metadata/color = "black"
 
 [node name="BlackMarker3" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(351, 278)
 metadata/color = "black"
 
 [node name="BlackMarker4" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(351, 369)
 metadata/color = "black"
 
 [node name="BlackMarker5" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(297, 340)
 metadata/color = "black"
 
 [node name="BlackMarker6" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(297, 370)
 metadata/color = "black"
 
 [node name="BlackMarker7" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(351, 340)
 metadata/color = "black"
 
 [node name="BlackMarker8" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(377, 324)
 metadata/color = "black"
 
 [node name="BlackMarker9" type="Marker2D" parent="Carroms/Markers"]
-visible = false
 position = Vector2(271, 324)
 metadata/color = "black"
 

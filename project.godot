@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=648
 window/stretch/mode="viewport"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 shoot={

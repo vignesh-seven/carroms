@@ -48,11 +48,15 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("reset_striker"):
 
+		# if no physics strikers exist, do nothing (condition for when reset is pressed while in aiming mode)
+		if $StrikerPhysics.get_child_count(true) == 0:
+			return
 		# check if all the physics objects are stationary or not
 			# check if all striker & carroms are stationary
 		var carroms = $"../Carroms".get_children()
 		# adding striker to the list
 		carroms += $StrikerPhysics.get_children()
+
 		for carrom in carroms:
 			if carrom.get_class() == "RigidBody2D":
 				if carrom.linear_velocity <= Vector2(2.0, 2.0) and carrom.linear_velocity >= Vector2(-2.0, -2.0):

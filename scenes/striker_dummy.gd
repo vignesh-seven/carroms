@@ -47,13 +47,15 @@ func _process(delta):
 
 
 func _on_strikers_reset_striker(prev_position):
+
 	visible = true
+
 	#print(prev_position)
 	#print($"../../StrikerPositionMarker".position)
 	position = prev_position
 	$AnimationPlayer.play("spawn_animation_part1")
 
-func trigget_spawn_animation_part2():
+func trigger_spawn_animation_part2():
 	position = $"../../StrikerPositionMarker".position
 	$AnimationPlayer.play("spawn_animation_part2")
 
