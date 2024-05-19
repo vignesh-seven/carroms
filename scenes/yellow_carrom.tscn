@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://comder28wh6pc"]
+[gd_scene load_steps=5 format=3 uid="uid://comder28wh6pc"]
 
 [ext_resource type="Script" path="res://scenes/carrom.gd" id="1_f4md3"]
 [ext_resource type="Texture2D" uid="uid://dh67xwigsa42" path="res://sprites/yellow.png" id="2_n5ck5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nw7t2"]
+friction = 10.0
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb7dk"]
 radius = 15.0
 
 [node name="YellowCarrom" type="RigidBody2D"]
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_nw7t2")
 gravity_scale = 0.0
-linear_damp = 1.0
+linear_damp_mode = 1
+linear_damp = 2.0
 script = ExtResource("1_f4md3")
 metadata/carrom_type = "yellow"
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://w4gcorywtwwu"]
+[gd_scene load_steps=10 format=3 uid="uid://w4gcorywtwwu"]
 
 [ext_resource type="Texture2D" uid="uid://lljnpc2hsydm" path="res://sprites/carrom-board.png" id="1_a7er2"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vu3lo"]
 [ext_resource type="Script" path="res://scenes/goal_points.gd" id="2_ei0oq"]
+[ext_resource type="Texture2D" uid="uid://cqdd0dlu3em2u" path="res://sprites/starting positions scaled.png" id="4_bnkug"]
 [ext_resource type="PackedScene" uid="uid://dacxphk8sfpdu" path="res://scenes/striker_dummy.tscn" id="4_o4jug"]
 [ext_resource type="Script" path="res://scenes/strikers.gd" id="4_sbwrm"]
 
@@ -67,52 +68,110 @@ position = Vector2(786.04, 826.15)
 shape = SubResource("CircleShape2D_d2vdn")
 
 [node name="StrikerPositionMarker" type="Marker2D" parent="."]
-position = Vector2(326, 508)
+position = Vector2(324, 510)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="StartingPositionsScaled" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(324, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_bnkug")
 
 [node name="Carroms" type="Node2D" parent="."]
 
 [node name="Markers" type="Node2D" parent="Carroms"]
 
 [node name="RedMarker" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(200, 100)
-metadata/color = "red"
-
-[node name="RedMarker2" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(350, 100)
-metadata/color = "red"
-
-[node name="RedMarker3" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(500, 100)
+position = Vector2(324, 324)
 metadata/color = "red"
 
 [node name="YellowMarker" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(200, 200)
+position = Vector2(297, 309)
 metadata/color = "yellow"
 
 [node name="YellowMarker2" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(350, 200)
+position = Vector2(351, 308)
 metadata/color = "yellow"
 
 [node name="YellowMarker3" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(500, 200)
+visible = false
+position = Vector2(377, 293)
+metadata/color = "yellow"
+
+[node name="YellowMarker4" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(271, 293)
+metadata/color = "yellow"
+
+[node name="YellowMarker5" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(324, 263)
+metadata/color = "yellow"
+
+[node name="YellowMarker6" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(271, 355)
+metadata/color = "yellow"
+
+[node name="YellowMarker7" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(377, 355)
+metadata/color = "yellow"
+
+[node name="YellowMarker8" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(324, 355)
+metadata/color = "yellow"
+
+[node name="YellowMarker9" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(324, 385)
 metadata/color = "yellow"
 
 [node name="BlackMarker" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(200, 300)
+visible = false
+position = Vector2(324, 293)
 metadata/color = "black"
 
 [node name="BlackMarker2" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(350, 300)
+visible = false
+position = Vector2(297, 278)
 metadata/color = "black"
 
 [node name="BlackMarker3" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(500, 300)
+visible = false
+position = Vector2(351, 278)
 metadata/color = "black"
 
 [node name="BlackMarker4" type="Marker2D" parent="Carroms/Markers"]
-position = Vector2(194, 542)
+visible = false
+position = Vector2(351, 369)
+metadata/color = "black"
+
+[node name="BlackMarker5" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(297, 340)
+metadata/color = "black"
+
+[node name="BlackMarker6" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(297, 370)
+metadata/color = "black"
+
+[node name="BlackMarker7" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(351, 340)
+metadata/color = "black"
+
+[node name="BlackMarker8" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(377, 324)
+metadata/color = "black"
+
+[node name="BlackMarker9" type="Marker2D" parent="Carroms/Markers"]
+visible = false
+position = Vector2(271, 324)
 metadata/color = "black"
 
 [node name="Strikers" type="Node2D" parent="."]

@@ -14,14 +14,14 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("left"):
-		if position.x > $"../StrikerBoundaryMarkers/Left".position.x:
+		if position.x > $"../StrikerBoundaryMarkers/Left".position.x && ready_for_aiming:
 			position.x -= 200 * delta
-			$"../../StrikerPositionMarker".position = position
+			#$"../../StrikerPositionMarker".position = position
 
 	if Input.is_action_pressed("right"):
-		if position.x < $"../StrikerBoundaryMarkers/Right".position.x:
+		if position.x < $"../StrikerBoundaryMarkers/Right".position.x  && ready_for_aiming:
 			position.x += 200 * delta
-			$"../../StrikerPositionMarker".position = position
+			#$"../../StrikerPositionMarker".position = position
 
 	if Input.is_action_pressed("aim"):
 		# change angle based on mouse position
@@ -48,8 +48,8 @@ func _process(delta):
 
 func _on_strikers_reset_striker(prev_position):
 	visible = true
-	print(prev_position)
-	print($"../../StrikerPositionMarker".position)
+	#print(prev_position)
+	#print($"../../StrikerPositionMarker".position)
 	position = prev_position
 	$AnimationPlayer.play("spawn_animation_part1")
 

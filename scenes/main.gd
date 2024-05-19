@@ -16,6 +16,7 @@ func _ready():
 	#print("hi from main.gd")
 	# the markers that contain all the postitions for the carroms (along with the color)
 	# spawning carroms
+	if !$Carroms/Markers.visible: return
 	var markers = $Carroms/Markers.get_children()
 	for marker in markers:
 		#print(marker.position)

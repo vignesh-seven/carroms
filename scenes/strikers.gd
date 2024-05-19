@@ -27,10 +27,10 @@ func _physics_process(delta):
 		if $StrikerPhysics.get_child_count() == 0: # only spawn striker if there are no strikers already
 			$StrikerDummy.visible = false
 			var striker = striker_scene.instantiate()
-			striker.position = $"../StrikerPositionMarker".position
+			striker.position = $StrikerDummy.position
 
 			var mouse_position = get_viewport().get_mouse_position()
-			var direction = (mouse_position - $"../StrikerPositionMarker".position).normalized()
+			var direction = (mouse_position - $StrikerDummy.position).normalized()
 			# strength of the force is calculated like this for now
 			#var strength = mouse_position.distance_to(position)
 

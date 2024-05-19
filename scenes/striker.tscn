@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://tlixi5cbcs61"]
+[gd_scene load_steps=4 format=3 uid="uid://tlixi5cbcs61"]
 
 [ext_resource type="Texture2D" uid="uid://coedtgnoxag45" path="res://sprites/striker.png" id="2_cer3b"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_36akr"]
+friction = 10.0
+bounce = 0.2
+absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb7dk"]
 radius = 17.0
 
 [node name="Striker" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_36akr")
 gravity_scale = 0.0
-linear_damp = 1.0
+linear_damp = 1.5
 metadata/carrom_type = "striker"
 
 [node name="StrikerSprite" type="Sprite2D" parent="."]

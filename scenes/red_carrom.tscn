@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://oejnep3ivph5"]
+[gd_scene load_steps=5 format=3 uid="uid://oejnep3ivph5"]
 
 [ext_resource type="Script" path="res://scenes/carrom.gd" id="1_ryajd"]
 [ext_resource type="Texture2D" uid="uid://d2u6q44ykx8mi" path="res://sprites/red.png" id="2_xelu3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xb5pc"]
+friction = 10.0
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb7dk"]
 radius = 15.0
 
 [node name="RedCarrom" type="RigidBody2D"]
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_xb5pc")
 gravity_scale = 0.0
-linear_damp = 1.0
+linear_damp_mode = 1
+linear_damp = 2.0
 script = ExtResource("1_ryajd")
 metadata/carrom_type = "red"
 
